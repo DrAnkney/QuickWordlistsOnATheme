@@ -18,8 +18,8 @@ So here's a method to build a *super quick* list that's *long enough* so hashcat
 cewl -v -d 1 -w fruit100.txt https://simple.wikipedia.org/wiki/List_of_fruits 
 ```
 (I suggest verbose on this because otherwise you could sit there forever  thinking cewl wasn't working, because this can take a minute if $d>1$ or if your website is more involved.) This command with this website gave me 21,584 words in a few minutes.
-3. Now use some rules to catch things such as different capitalization, or switching out an a for a 4 or @, or adding a number to the end of the word. You want a long list here with a minimum of time expended, which will explain the method I've chosen to use.
-	a. Pick a few of the built-in hashcat rules lists that aren't too long. The d3ad0ne.rule ruleset, for example, will take you a *while* to run, even more so with something like OneRuleToRuleThemAll.rule. So maybe just a little best-of rule or two. Run them on your list separately, into separate files.
+
+3. Now use some rules to catch things such as different capitalization, or switching out an a for a 4 or @, or adding a number to the end of the word. Remember that we want a long list here with a minimum of time expended, pick a few of the built-in hashcat rules lists that aren't too long. The d3ad0ne.rule ruleset, for example, will take you a *while* to run, even more so with something like OneRuleToRuleThemAll.rule. So maybe just a little best-of rule or two. Run them on your list separately, into separate files to make things super fast.
 
 ```
 hashcat --force fruit100.txt /usr/share/hashcat/rules/best64.rule --stdout > fruit1.txt
@@ -81,12 +81,12 @@ sa4 se3 sl1
 ^c ^r ^a ^z ^y ^4
 ```
 
-b. Now put your tricked out lists together. We did the three rules lists separately to keep things super quick while also increasing our list. 
+4. Now put your tricked out lists together:
 
 ```
 cat fruit1.txt fruit2.txt fruit3.txt >> crazy4fruit.txt
 ```
-4. If you have any passwords that YOU would use if you had a password on this theme, then tack those on the end.
+If you have any passwords that YOU would use if you had a password on this theme, then tack those on the end.
 ```
 echo "crazy4fruit" >> crazy4fruit.txt
 echo "bananas4fruit" >> crazy4fruit.txt
