@@ -81,7 +81,8 @@ sa4 se3 sl1
 ^c ^r ^a ^z ^y ^4
 ```
 
-	b. Now put your tricked out lists together. We did the three rules lists separately to keep things super quick while also increasing our list. 
+b. Now put your tricked out lists together. We did the three rules lists separately to keep things super quick while also increasing our list. 
+
 ```
 cat fruit1.txt fruit2.txt fruit3.txt >> crazy4fruit.txt
 ```
