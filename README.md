@@ -22,15 +22,15 @@ cewl -v -d 1 -w fruit100.txt https://simple.wikipedia.org/wiki/List_of_fruits
 3. Now use some rules to catch things such as different capitalization, or switching out an a for a 4 or @, or adding a number to the end of the word. Remember that we want a long list here with a minimum of time expended, pick a few of the built-in hashcat rules lists that aren't too long. The d3ad0ne.rule ruleset, for example, will take you a *while* to run, even more so with something like OneRuleToRuleThemAll.rule. So maybe just a little best-of rule or two. Run them on your list separately, into separate files to make things super fast.
 
 ```
-hashcat --force fruit100.txt /usr/share/hashcat/rules/best64.rule --stdout > fruit1.txt
+hashcat --force fruit100.txt -r /usr/share/hashcat/rules/best64.rule --stdout > fruit1.txt
 
-hashcat --force fruit100.txt /usr/share/hashcat/rules/generated2.rule -- stdout > fruit2.txt
+hashcat --force fruit100.txt -r /usr/share/hashcat/rules/generated2.rule -- stdout > fruit2.txt
 ```
 
 You can even make up your own set of rules and run it on the list:
 
 ```
-hashcat --force fruit100.txt rules.rule --stdout > fruit3.txt
+hashcat --force fruit100.txt -r rules.rule --stdout > fruit3.txt
 ```
 
 The rules.rule file is one I made from the excellent tutorial on rules lists at https://www.4armed.com/blog/hashcat-rule-based-attack/, who also explains how to keep track of how well your rules work for you as you use them over time. Check it out. 
@@ -78,7 +78,7 @@ sa@ se3 sl1
 #Substitute 'a' with '4', 'e' with '3', 'l' with '1'
 sa4 se3 sl1
 #Add the word 'crazy4' to the beginning
-^c ^r ^a ^z ^y ^4
+^4 ^y ^z ^a ^r ^c
 ```
 
 4. Now put your tricked out lists together:
