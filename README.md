@@ -9,9 +9,13 @@ If you know something about your target, then you can build a wordlist that migh
 So here's a method to build a *super quick* list that's *long enough* so hashcat won't yell at you; try it with your own theme; my example is fruit-related.
 
 1. Find a nice website with relevant words. I suggest (after some trial but mostly error) 
+
 	a. searching with the word "list" (so "fruit list" rather than just "fruit") and 
+
 	b. leaning towards something encyclopedic (such as wikipedia rather than a schoolteacher's vocabulary list), and
+	
 	c. keeping it simple (so simple.wikipedia as opposed to en.wikipedia, for example).
+
 2. Scrape that website using cewl. If you think that the links will lead to more relevant words (for example, different names for the same fruit), then use a depth of 1. There might be no need to go deeper than that; it will add words to your list, but they may be irrelevant, and we want to add length that's more than just fluff in step 3.
 
 ```
@@ -33,7 +37,7 @@ You can even make up your own set of rules and run it on the list:
 hashcat --force fruit100.txt -r rules.rule --stdout > fruit3.txt
 ```
 
-The rules.rule file is one I made from the excellent tutorial on rules lists at https://www.4armed.com/blog/hashcat-rule-based-attack/, who also explains how to keep track of how well your rules work for you as you use them over time. Check it out. 
+The rules.rule file is one I made from the excellent tutorial by William Hurer-Mackay on rules lists at https://www.4armed.com/blog/hashcat-rule-based-attack/, who also explains how to keep track of how well your rules work for you as you use them over time. Check it out. 
 
 Here's my rules.rule, based off his suggestions:
 ```
